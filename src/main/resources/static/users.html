@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users - IT Help Desk</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div class="container">
+
+        <div class="page-header">
+            <h1>Users</h1>
+            <div class="meta">
+                <span>Create employees, IT agents, and admins</span>
+                <span class="status-pill" id="countPill">0 users</span>
+            </div>
+        </div>
+
+        <div id="message" class="alert"></div>
+
+        <div class="grid-2" style="align-items: start;">
+
+            <div class="card">
+                <h2>Add a User</h2>
+                <form id="userForm" style="margin-top: 16px;">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="e.g. Priya Nair">
+                        <div class="field-error" id="fullNameError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" placeholder="priya@company.com">
+                        <div class="field-error" id="emailError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="At least 6 characters">
+                        <div class="field-error" id="passwordError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select id="role">
+                            <option value="">-- Select --</option>
+                            <option value="EMPLOYEE">Employee</option>
+                            <option value="IT_AGENT">IT Agent</option>
+                            <option value="ADMIN">Admin</option>
+                        </select>
+                        <div class="field-error" id="roleError"></div>
+                    </div>
+
+                    <div class="form-group hidden" id="teamGroup">
+                        <label for="supportTeam">Support Team</label>
+                        <select id="supportTeam">
+                            <option value="">-- Select --</option>
+                            <option value="NETWORK_SUPPORT">Network Support</option>
+                            <option value="HARDWARE_SUPPORT">Hardware Support</option>
+                            <option value="SOFTWARE_SUPPORT">Software Support</option>
+                            <option value="ACCESS_MANAGEMENT">Access Management</option>
+                        </select>
+                        <div class="field-error" id="teamError"></div>
+                    </div>
+
+                    <button type="submit" class="btn">Create User</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>All Users</h2>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Team</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userBody">
+                            <tr><td colspan="4">Loading users...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/users.js"></script>
+</body>
+</html>

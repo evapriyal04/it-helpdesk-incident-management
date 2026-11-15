@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - IT Help Desk</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div class="container narrow">
+        <div class="page-header">
+            <h1>Login</h1>
+            <div class="meta">
+                <span>Choose a user to continue as. This is a simple role selector, not real authentication.</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <div id="message" class="alert"></div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="userSelect">User</label>
+                    <select id="userSelect">
+                        <option value="">Loading users...</option>
+                    </select>
+                    <div class="field-error" id="userError"></div>
+                </div>
+                <button type="submit" class="btn">Continue</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

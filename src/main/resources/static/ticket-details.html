@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Details - IT Help Desk</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div class="container">
+        <div class="page-header-row">
+            <div>
+                <h1 id="pageTitle">Ticket</h1>
+                <div class="meta">
+                    <span id="pageSubtitle">Loading...</span>
+                </div>
+            </div>
+            <a class="btn btn-outline" href="tickets.html">Back to Tickets</a>
+        </div>
+
+        <div id="message" class="alert"></div>
+
+        <div class="grid-2">
+
+            <!-- Left column: details and edit form -->
+            <div class="column">
+                <div class="card">
+                    <h2>Ticket Details</h2>
+                    <div id="detailsBody"></div>
+                </div>
+
+                <div class="card" id="editCard">
+                    <h2>Edit Details</h2>
+                    <form id="editForm">
+                        <div class="form-group">
+                            <label for="editTitle">Title</label>
+                            <input type="text" id="editTitle">
+                            <div class="field-error" id="editTitleError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="editDescription">Description</label>
+                            <textarea id="editDescription"></textarea>
+                            <div class="field-error" id="editDescriptionError"></div>
+                        </div>
+                        <div class="grid" style="grid-template-columns: 1fr 1fr;">
+                            <div class="form-group">
+                                <label for="editCategory">Category</label>
+                                <select id="editCategory">
+                                    <option value="NETWORK">Network</option>
+                                    <option value="HARDWARE">Hardware</option>
+                                    <option value="SOFTWARE">Software</option>
+                                    <option value="ACCESS">Access</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPriority">Priority</label>
+                                <select id="editPriority">
+                                    <option value="LOW">Low</option>
+                                    <option value="MEDIUM">Medium</option>
+                                    <option value="HIGH">High</option>
+                                    <option value="CRITICAL">Critical</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right column: assign, status, delete -->
+            <div class="column">
+                <div class="card" id="assignCard">
+                    <h2>Assign Ticket</h2>
+                    <div class="recommend-box" id="recommendationBox">Loading recommendation...</div>
+
+                    <div class="form-group">
+                        <label for="agentSelect">IT Agent</label>
+                        <select id="agentSelect">
+                            <option value="">-- Select an agent --</option>
+                        </select>
+                        <div class="field-error" id="agentError"></div>
+                    </div>
+
+                    <div class="warning-box hidden" id="mismatchWarning"></div>
+
+                    <div class="form-group hidden" id="overrideGroup">
+                        <label style="font-weight: normal;">
+                            <input type="checkbox" id="overrideCheck" style="width: auto; margin-right: 8px;">
+                            Assign anyway (override the recommendation)
+                        </label>
+                    </div>
+
+                    <div class="form-group hidden" id="reasonGroup">
+                        <label for="reasonText">Reason for the change</label>
+                        <textarea id="reasonText" placeholder="Why is this ticket being transferred or overridden?"></textarea>
+                        <div class="field-error" id="reasonError"></div>
+                    </div>
+
+                    <button class="btn" id="assignBtn">Assign</button>
+                </div>
+
+                <div class="card" id="statusCard">
+                    <h2>Update Status</h2>
+                    <div class="form-group" style="margin-top: 16px;">
+                        <label for="statusSelect">Status</label>
+                        <select id="statusSelect">
+                            <option value="OPEN">Open</option>
+                            <option value="IN_PROGRESS">In Progress</option>
+                            <option value="RESOLVED">Resolved</option>
+                        </select>
+                    </div>
+                    <div class="form-group hidden" id="notesGroup">
+                        <label for="resolutionNotes">Resolution Notes</label>
+                        <textarea id="resolutionNotes" placeholder="How was the issue fixed?"></textarea>
+                        <div class="field-error" id="notesError"></div>
+                    </div>
+                    <button class="btn" id="statusBtn">Update Status</button>
+                </div>
+
+                <div class="card" id="deleteCard">
+                    <h2>Delete Ticket</h2>
+                    <p style="margin-bottom: 16px;">Only tickets that are still Open can be deleted. This cannot be undone.</p>
+                    <button class="btn btn-danger" id="deleteBtn">Delete Ticket</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/ticket-details.js"></script>
+</body>
+</html>

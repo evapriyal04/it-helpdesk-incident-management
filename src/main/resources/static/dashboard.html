@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - IT Help Desk</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div class="container">
+
+        <div class="page-header-row">
+            <div>
+                <h1>Dashboard</h1>
+                <div class="meta">
+                    <span>Live ticket statistics from the database</span>
+                    <span class="status-pill" id="criticalPill">Loading...</span>
+                </div>
+            </div>
+            <a class="btn btn-outline" href="tickets.html">View All Tickets</a>
+        </div>
+
+        <div id="message" class="alert"></div>
+
+        <div class="section-header">
+            <h2>Key Metrics</h2>
+            <span class="section-meta">All tickets</span>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="metric-label">Total Tickets</div>
+                <div class="metric-value" id="totalValue">0</div>
+                <div class="metric-sub">Across all categories</div>
+            </div>
+            <div class="card">
+                <div class="metric-label">Open Tickets</div>
+                <div class="metric-value" id="openValue">0</div>
+                <div class="metric-sub">Waiting for an IT agent</div>
+            </div>
+            <div class="card">
+                <div class="metric-label">In Progress</div>
+                <div class="metric-value" id="progressValue">0</div>
+                <div class="metric-sub">Currently being worked on</div>
+            </div>
+            <div class="card">
+                <div class="metric-label">Resolved</div>
+                <div class="metric-value" id="resolvedValue">0</div>
+                <div class="progress"><div class="progress-bar" id="resolvedBar"></div></div>
+                <div class="metric-sub" id="resolvedRate">0% resolution rate</div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>Ticket Breakdown</h2>
+            <span class="section-meta">Grouped with SQL COUNT and GROUP BY</span>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="chart-title">
+                    <div>
+                        <h2>Tickets by Priority</h2>
+                        <p>Number of tickets at each priority level</p>
+                    </div>
+                    <span class="chart-tag">All time</span>
+                </div>
+                <div class="bar-chart" id="priorityChart"></div>
+                <div class="bar-labels" id="priorityLabels"></div>
+            </div>
+
+            <div class="card">
+                <div class="chart-title">
+                    <div>
+                        <h2>Tickets by Category</h2>
+                        <p>Number of tickets in each category</p>
+                    </div>
+                    <span class="chart-tag">All time</span>
+                </div>
+                <div class="bar-chart" id="categoryChart"></div>
+                <div class="bar-labels" id="categoryLabels"></div>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>Status and Recent Activity</h2>
+            <span class="section-meta">Latest 5 tickets</span>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="chart-title">
+                    <div>
+                        <h2>Tickets by Status</h2>
+                        <p>Where tickets are in their life cycle</p>
+                    </div>
+                    <span class="chart-tag">All time</span>
+                </div>
+                <div class="bar-chart" id="statusChart"></div>
+                <div class="bar-labels" id="statusLabels"></div>
+            </div>
+
+            <div class="card">
+                <div class="chart-title">
+                    <div>
+                        <h2>Recent Tickets</h2>
+                        <p>The newest incidents reported</p>
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticket No.</th>
+                                <th>Title</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentBody">
+                            <tr><td colspan="5">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

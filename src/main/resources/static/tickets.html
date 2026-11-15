@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets - IT Help Desk</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div class="container">
+        <div class="page-header-row">
+            <div>
+                <h1>Tickets</h1>
+                <div class="meta">
+                    <span>Every reported incident in one place</span>
+                    <span class="status-pill" id="countPill">0 tickets</span>
+                </div>
+            </div>
+            <div id="createAction"></div>
+        </div>
+
+        <div id="message" class="alert"></div>
+
+        <div class="filter-bar">
+            <input type="text" id="searchInput" placeholder="Search ticket no. e.g. TKT-1001">
+            <button class="btn btn-small" id="searchBtn">Search</button>
+
+            <select id="statusFilter">
+                <option value="">All statuses</option>
+                <option value="OPEN">Open</option>
+                <option value="IN_PROGRESS">In Progress</option>
+                <option value="RESOLVED">Resolved</option>
+            </select>
+
+            <select id="priorityFilter">
+                <option value="">All priorities</option>
+                <option value="LOW">Low</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="HIGH">High</option>
+                <option value="CRITICAL">Critical</option>
+            </select>
+
+            <select id="categoryFilter">
+                <option value="">All categories</option>
+                <option value="NETWORK">Network</option>
+                <option value="HARDWARE">Hardware</option>
+                <option value="SOFTWARE">Software</option>
+                <option value="ACCESS">Access</option>
+            </select>
+
+            <button class="btn btn-outline btn-small" id="clearBtn">Clear</button>
+        </div>
+
+        <div class="card">
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ticket No.</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Created By</th>
+                            <th>Assigned To</th>
+                            <th>Created</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="ticketBody">
+                        <tr><td colspan="9">Loading tickets...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/tickets.js"></script>
+</body>
+</html>

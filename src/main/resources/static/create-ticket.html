@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Ticket - IT Help Desk</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Create Ticket</h1>
+            <div class="meta">
+                <span>Describe the technical issue and we will route it to the IT team</span>
+                <span class="status-pill">New Incident</span>
+            </div>
+        </div>
+
+        <div class="card" style="max-width: 720px;">
+            <div id="message" class="alert"></div>
+
+            <form id="ticketForm">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" placeholder="Short summary, e.g. Wi-Fi not working">
+                    <div class="field-error" id="titleError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" placeholder="Explain what is happening and when it started"></textarea>
+                    <div class="field-error" id="descriptionError"></div>
+                </div>
+
+                <div class="grid" style="grid-template-columns: 1fr 1fr;">
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="">-- Select --</option>
+                            <option value="NETWORK">Network</option>
+                            <option value="HARDWARE">Hardware</option>
+                            <option value="SOFTWARE">Software</option>
+                            <option value="ACCESS">Access</option>
+                        </select>
+                        <div class="field-error" id="categoryError"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="priority">Priority</label>
+                        <select id="priority">
+                            <option value="">-- Select --</option>
+                            <option value="LOW">Low</option>
+                            <option value="MEDIUM">Medium</option>
+                            <option value="HIGH">High</option>
+                            <option value="CRITICAL">Critical</option>
+                        </select>
+                        <div class="field-error" id="priorityError"></div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn">Submit Ticket</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/create-ticket.js"></script>
+</body>
+</html>
